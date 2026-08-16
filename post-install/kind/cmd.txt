@@ -1,0 +1,5 @@
+mkdir -p "$HOME/libvirt/kind/mnt"
+chmod 0777 "$HOME/libvirt/kind/mnt"
+
+virt-install --connect qemu:///system --name kind   --memory 8192   --extra-args="preseed/file=/preseed.cfg console=ttyS0,115200n8"   --initrd-inject ./preseed.cfg --initrd-inject ./sshd_config --initrd-inject ./post_install.sh   --install debian13   --disk size=40   --filesystem type=mount,source=/home/btoll/libvirt/kind/mnt,target=shared,accessmode=mapped,driver.type=path,driver.wrpolicy=immediate   --network network=default   --graphics none
+
