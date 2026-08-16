@@ -1,0 +1,10 @@
+preseed
+key.pub
+include/
+share/
+*.[oa]
+*.out
+*~
+*.log
+vuln.table
+
